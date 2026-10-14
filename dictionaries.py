@@ -101,3 +101,41 @@ print(merged_settings)       # {'theme': 'dark', 'timeout': 30} (user_prefs over
 # Using the `in` operator (extremely fast O(1) time complexity for dictionaries).
 if "username" in profile:
     print("Username key exists!")
+
+
+# =====================================================
+# PART 5: ADDITIONAL USEFUL DICTIONARY METHODS (Less Common / Utility)
+# =====================================================
+
+# 1. NESTED DICTIONARIES
+# Dictionaries can contain other dictionaries to represent structured data (like JSON).
+organization = {
+    "team": "Engineering",
+    "lead": {
+        "name": "Youssef",
+        "level": "Senior"
+    }
+}
+print(organization["lead"]["name"])     # "Youssef"
+
+
+# 2. FROMKEYS (Creating a dictionary with default values)
+# Generates a new dictionary from a sequence of keys with a shared default value.
+keys = ["status", "role", "permissions"]
+default_config = dict.fromkeys(keys, None)
+print(default_config)                   # {'status': None, 'role': None, 'permissions': None}
+
+
+# 3. COPYING DICTIONARIES (.copy())
+# Creates a shallow copy of a dictionary so mutations don't affect the original.
+profile_backup = profile.copy()
+
+
+# 4. SORTING DICTIONARY KEYS OR VALUES
+# Using `sorted()` to iterate or extract sorted items from a dictionary.
+scores = {"alice": 85, "bob": 92, "charlie": 78}
+# Sort dictionary by keys alphabetically
+sorted_by_keys = sorted(scores.keys())
+# Sort dictionary by values (scores) using a lambda function key
+sorted_by_values = sorted(scores.items(), key=lambda item: item[1], reverse=True)
+print(sorted_by_values)                 # [('bob', 92), ('alice', 85), ('charlie', 78)]
