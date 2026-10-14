@@ -41,7 +41,30 @@ def check_scope():
 
 
 # =====================================================
-# PART 2: FUNCTIONS & METHODS
+# PART 2: BUILT-IN FUNCTIONS & TYPE CASTS
+# =====================================================
+
+# Essential global functions built into Python, used universally across data types.
+text_sample = "123"
+
+# Length, Type, and Range
+print(len("Hello"))          # 5 (Returns the number of items or characters)
+print(type(text_sample))     # <class 'str'> (Returns the data type of an object)
+print(list(range(0, 5)))     # [0, 1, 2, 3, 4] (Generates a sequence of numbers)
+
+# Type Conversion / Casting
+print(int(text_sample))      # 123 (Converts string/float to integer)
+print(float("10.5"))         # 10.5 (Converts string/int to float)
+print(str(123))              # "123" (Converts any data type to a string)
+print(bool(1))               # True (Converts value to boolean truth value)
+
+# Mathematical Built-ins
+print(abs(-5))               # 5 (Returns absolute value)
+print(round(3.14159, 2))     # 3.14 (Rounds a decimal number)
+
+
+# =====================================================
+# PART 3: USER-DEFINED FUNCTIONS & METHODS
 # =====================================================
 
 # 1. BASIC FUNCTION DEFINITION & CALLING (Most Common)
