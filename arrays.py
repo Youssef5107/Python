@@ -25,7 +25,55 @@ print(numbers[::2])    # [1, 3, 5] (Every second item / step of 2)
 
 
 # =====================================================
-# PART 2: LIST COMPREHENSIONS (The Pythonic Way to Map & Filter)
+# PART 2: LIST MUTATION METHODS (APPEND, POP, INSERT, ETC.)
+# =====================================================
+
+# 1. APPEND (Most Common)
+# Adds an element to the very end of the list (JS equivalent: arr.push).
+numbers.append(6)
+print(numbers)         # [1, 2, 3, 4, 5, 6]
+
+
+# 2. POP (Very Common)
+# Removes and returns an element at a given index (defaults to the last item).
+# JS equivalent: arr.pop()
+last_item = numbers.pop()       # Removes 6
+first_item = numbers.pop(0)     # Removes element at index 0 (1)
+print(numbers)         # [2, 3, 4, 5]
+
+
+# 3. INSERT (Very Common)
+# Inserts an element at a specific index without overwriting.
+# JS equivalent: arr.splice(index, 0, item)
+numbers.insert(0, 10)  # Inserts 10 at the beginning
+print(numbers)         # [10, 2, 3, 4, 5]
+
+
+# 4. EXTEND (Very Common)
+# Appends multiple elements from another iterable to the end of the list.
+# JS equivalent: arr.concat(otherArr)
+numbers.extend([6, 7])
+print(numbers)         # [10, 2, 3, 4, 5, 6, 7]
+
+
+# 5. REMOVE & CLEAR (Common)
+# Removes the *first occurrence* of a specific value.
+numbers.remove(10)     # Removes the number 10
+print(numbers)         # [2, 3, 4, 5, 6, 7]
+
+# numbers.clear()      # Clears all elements from the list entirely ([]), uncomment to test
+
+
+# 6. SORTING & REVERSING (Very Common)
+# Modifies the list in-place.
+scores_list = [45, 12, 89, 33]
+scores_list.sort()             # Sorts ascending: [12, 33, 45, 89]
+scores_list.sort(reverse=True) # Sorts descending: [89, 45, 33, 12]
+scores_list.reverse()          # Reverses current order in-place
+
+
+# =====================================================
+# PART 3: LIST COMPREHENSIONS (The Pythonic Way to Map & Filter)
 # =====================================================
 
 # In JavaScript, you might use `arr.map().filter()`. 
@@ -34,23 +82,23 @@ print(numbers[::2])    # [1, 3, 5] (Every second item / step of 2)
 # 1. MAPPING EQUIVALENT (Transforming items)
 # JS: numbers.map(n => n * 2)
 doubled = [n * 2 for n in numbers]
-print(doubled)         # [2, 4, 6, 8, 10]
+print(doubled)         # [2, 4, 6, 8, 10, 12, 14]
 
 
 # 2. FILTERING EQUIVALENT (Conditionally selecting items)
 # JS: numbers.filter(n => n % 2 == 0)
 evens = [n for n in numbers if n % 2 == 0]
-print(evens)           # [2, 4]
+print(evens)           # [2, 4, 6]
 
 
 # 3. COMBINED MAP & FILTER
 # JS: numbers.filter(n => n > 2).map(n => n * 10)
 filtered_mapped = [n * 10 for n in numbers if n > 2]
-print(filtered_mapped) # [30, 40, 50]
+print(filtered_mapped) # [30, 40, 50, 60, 70]
 
 
 # =====================================================
-# PART 3: HIGHER-ORDER FUNCTIONS (map, filter, reduce)
+# PART 4: HIGHER-ORDER FUNCTIONS (map, filter, reduce)
 # =====================================================
 
 # Python supports functional programming style via built-in functions.
@@ -78,7 +126,7 @@ print(sum_reduce)      # 10 (Accumulates total sum)
 
 
 # =====================================================
-# PART 4: OTHER USEFUL HIGHER-ORDER UTILITIES (any, all, sorted)
+# PART 5: OTHER USEFUL HIGHER-ORDER UTILITIES (any, all, sorted)
 # =====================================================
 
 # 1. ANY & ALL (Short-circuit evaluation over iterables)
